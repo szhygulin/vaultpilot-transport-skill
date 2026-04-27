@@ -1,0 +1,43 @@
+{
+  "name": "vaultpilot-transport",
+  "version": "0.1.0",
+  "description": "Claude Code skill that relays USB-HID Ledger signing for hosted vaultpilot-mcp.",
+  "type": "module",
+  "main": "helper/index.js",
+  "bin": {
+    "vaultpilot-transport": "helper/index.js"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "files": [
+    "SKILL.md",
+    "helper",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/szhygulin/vaultpilot-transport.git"
+  },
+  "homepage": "https://github.com/szhygulin/vaultpilot-transport#readme",
+  "bugs": "https://github.com/szhygulin/vaultpilot-transport/issues",
+  "license": "MIT",
+  "author": "Viacheslav Zhygulin",
+  "keywords": [
+    "ledger",
+    "claude-code",
+    "claude-code-skill",
+    "vaultpilot-mcp",
+    "usb-hid",
+    "tron"
+  ],
+  "dependencies": {
+    "@ledgerhq/hw-app-trx": "^6.34.1",
+    "@ledgerhq/hw-transport-node-hid": "^6.32.1"
+  }
+}
