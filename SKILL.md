@@ -1,12 +1,12 @@
 <!--
-VAULTPILOT-TRANSPORT-SENTINEL: do-not-remove
+VAULTPILOT-TRANSPORT-SKILL-SENTINEL: do-not-remove
 This sentinel + the SHA-256 of the file as a whole is what
 hosted vaultpilot-mcp pins to detect tampering. Both must
 be present for the integrity check to pass. See
 README.md § Audit for the full trust model.
 -->
 
-# vaultpilot-transport — relay USB-HID Ledger signing for hosted vaultpilot-mcp
+# vaultpilot-transport-skill — relay USB-HID Ledger signing for hosted vaultpilot-mcp
 
 ## When this skill applies
 
@@ -38,7 +38,7 @@ EVM chains do **not** route through this skill — they use WalletConnect.
 
 ## How to invoke the helper
 
-The helper is a small Node script at `${HOME}/.claude/skills/vaultpilot-transport/helper/index.js`. It reads a JSON envelope on stdin and writes a JSON response on stdout. It opens USB-HID directly to the Ledger device — the user must have the device connected, unlocked, and have the chain-appropriate app open (TRON for TRON, etc.).
+The helper is a small Node script at `${HOME}/.claude/skills/vaultpilot-transport-skill/helper/index.js`. It reads a JSON envelope on stdin and writes a JSON response on stdout. It opens USB-HID directly to the Ledger device — the user must have the device connected, unlocked, and have the chain-appropriate app open (TRON for TRON, etc.).
 
 **Tell the user before invoking:**
 
@@ -52,7 +52,7 @@ echo '{
   "chain": "tron",
   "path": "<bip44_path_from_envelope>",
   "tx": <chain_specific_tx_object_from_envelope>
-}' | node ~/.claude/skills/vaultpilot-transport/helper/index.js
+}' | node ~/.claude/skills/vaultpilot-transport-skill/helper/index.js
 ```
 
 The `path` and `tx` fields come straight from the hosted MCP's `relay_required` envelope. **Do NOT invent or modify them.** If the user has multiple Ledger accounts paired, the path comes from whichever was active at the prepare step (the hosted MCP encodes it in the envelope).

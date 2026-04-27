@@ -1,4 +1,4 @@
-# vaultpilot-transport — agent-side relay skill for hosted vaultpilot-mcp
+# vaultpilot-transport-skill — agent-side relay skill for hosted vaultpilot-mcp
 
 > **Status: TRON only (initial bootstrap).** Solana / Bitcoin / Litecoin land in follow-up PRs.
 
@@ -50,13 +50,13 @@ This is the same trust shape as WalletConnect — the helper is a transport for 
 ## Install
 
 ```bash
-git clone https://github.com/szhygulin/vaultpilot-transport.git \
-  ~/.claude/skills/vaultpilot-transport
-cd ~/.claude/skills/vaultpilot-transport
+git clone https://github.com/szhygulin/vaultpilot-transport-skill.git \
+  ~/.claude/skills/vaultpilot-transport-skill
+cd ~/.claude/skills/vaultpilot-transport-skill
 npm install
 ```
 
-Restart Claude Code so the skill is discovered. When the hosted MCP starts and sees `~/.claude/skills/vaultpilot-transport/SKILL.md`, signing flows for TRON (and, in future versions, Solana / BTC / LTC) become available against the hosted endpoint.
+Restart Claude Code so the skill is discovered. When the hosted MCP starts and sees `~/.claude/skills/vaultpilot-transport-skill/SKILL.md`, signing flows for TRON (and, in future versions, Solana / BTC / LTC) become available against the hosted endpoint.
 
 ### Linux only — Ledger udev rules
 
@@ -86,7 +86,7 @@ Solana / BTC / LTC will add `@ledgerhq/hw-app-solana`, `@ledgerhq/hw-app-btc`, `
 ## Update
 
 ```bash
-cd ~/.claude/skills/vaultpilot-transport
+cd ~/.claude/skills/vaultpilot-transport-skill
 git pull --ff-only
 npm install
 ```
@@ -144,4 +144,4 @@ The helper exits 0 on success (`ok: true`) and 1 on error (`ok: false`) so a she
 
 ## Reporting a vulnerability
 
-Open a GitHub security advisory at <https://github.com/szhygulin/vaultpilot-transport/security/advisories/new> rather than a public issue. Include a reproduction, the affected version, and your assessment of impact.
+Open a GitHub security advisory at <https://github.com/szhygulin/vaultpilot-transport-skill/security/advisories/new> rather than a public issue. Include a reproduction, the affected version, and your assessment of impact.

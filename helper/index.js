@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * vaultpilot-transport — CLI dispatcher.
+ * vaultpilot-transport-skill — CLI dispatcher.
  *
  * Reads a JSON envelope on stdin, dispatches by `chain`, writes
  * the structured response on stdout, and exits 0 on `ok: true`
@@ -50,7 +50,7 @@ async function main() {
       chain,
       ERROR_KIND.CHAIN_NOT_SUPPORTED_YET,
       `Chain "${chain}" relay is on the roadmap but not yet implemented in this version. ` +
-        `See https://github.com/szhygulin/vaultpilot-transport for status.`,
+        `See https://github.com/szhygulin/vaultpilot-transport-skill for status.`,
     );
   }
   if (!SUPPORTED_CHAINS.has(chain)) {
@@ -61,7 +61,7 @@ async function main() {
   try {
     if (chain === "tron") {
       const { signTron } = await import("./tron.js");
-      process.stderr.write(`[vaultpilot-transport] signing tron tx via Ledger USB-HID...\n`);
+      process.stderr.write(`[vaultpilot-transport-skill] signing tron tx via Ledger USB-HID...\n`);
       const result = await signTron({ path: input.path, tx: input.tx });
       return succeed(chain, result);
     }
