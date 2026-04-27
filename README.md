@@ -8,7 +8,7 @@ EVM signing is **not** routed through this skill — it goes through WalletConne
 
 ## Why this repo is separate
 
-Same reasoning as [`vaultpilot-skill`](https://github.com/szhygulin/vaultpilot-skill): an attacker who compromises the hosted MCP's release pipeline cannot push a change that weakens or removes this skill. The skill's trust root is **your own clone of this repository on your local disk**.
+Same reasoning as [`vaultpilot-security-skill`](https://github.com/szhygulin/vaultpilot-security-skill) (the agent-side preflight skill): an attacker who compromises the hosted MCP's release pipeline cannot push a change that weakens or removes this skill. The skill's trust root is **your own clone of this repository on your local disk**.
 
 The hosted MCP additionally pins the SHA-256 of `SKILL.md` — on every signing flow it asks the agent to recompute the hash and abort if it doesn't match the pin. Catches:
 - Tampered `SKILL.md` on disk (attacker can't change content without changing SHA).
