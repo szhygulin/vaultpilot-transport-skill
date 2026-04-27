@@ -1,0 +1,4 @@
+## Build/Distribution Discipline
+
+- **Do not add binaries, `bin` entries in `package.json`, or any pkg/single-file-executable build pipeline to this repo.** This is a Claude Code skill, not a binary distribution. The helper runs from source via `node helper/index.js` (invoked by the skill text in `SKILL.md`); `git clone` + `npm install` is the entire install path. Binary releases would defeat the audit story in README's "Audit" section: *"All helper code in `helper/` is plain ESM JavaScript with no build step. `git clone` + `npm install` gives you exactly the bytes that ship."*
+- No `release-binaries.yml` workflow, no `@yao-pkg/pkg` dependency, no `bin` field in `package.json`. If a future change wants any of these, it's the wrong shape — propose distributing the same logic a different way (e.g. a tiny stand-alone npm package the skill calls into) rather than turning this repo into a binary releaser.
